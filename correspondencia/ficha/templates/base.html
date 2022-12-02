@@ -1,0 +1,219 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,600&display=swap" rel="stylesheet">
+       
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"><meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&family=Russo+One&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500&display=swap" rel="stylesheet">
+    	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+		crossorigin="anonymous">
+
+	<link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+
+	<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&family=Russo+One&display=swap"
+		rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,600&display=swap" rel="stylesheet">
+    
+        <link rel="stylesheet" href="{% static 'fonts/icomoon/style.css' %}">
+
+        <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+        
+        <!-- Style -->
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+        <link rel="stylesheet" href="{% static 'css/style_2.css' %}"> 
+
+        {% block css %}
+      
+        {% endblock css %}
+        <title>
+          {% block titulo %}
+              
+          {% endblock titulo %}
+      </title>
+      </head>
+  <body class="show-sidebar">
+  
+    
+    <aside class="sidebar">
+      <div class="toggle">
+        
+        <a class="burger js-menu-toggle" data-toggle="collapse" data-target="#main-navbar">
+              <span></span>
+            </a>
+      </div>
+      <div class="side-inner">
+
+        <div class="profile">
+          <a href="{% url 'home' %}">
+            <img src=" {% static 'images/logo-cozcyt.png' %} "alt="Image" class="img-fluid">
+          </a>
+          <h3 class="name">{{titulo}}</h3>
+          <span class="country">{{subtitulo}}</span>
+        </div>
+
+        
+        <div class="nav-menu">
+          <ul>
+            <li><a href="{% url 'home' %}"><span class="icon-home2 mr-3"></span>Inicio</a></li>
+            <br>
+            {% if perms.ficha.view_ficha %}
+              <li class="accordion">
+                <a href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" class="collapsible">
+                  <span class="icon-paperclip mr-3"></span>Fichas de control y seguimiento
+                </a>
+                <div id="collapseOne" class="collapse" aria-labelledby="headingOne">
+                  <div>
+                    <ul>
+                      <li><a href="{% url 'lista' %}">Mostrar fichas de control</a></li>
+                      <li><a href="{% url 'crear' %}">Agregar ficha de control</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+              <br>
+              <li><a href="{% url 'correspondencia' %}"><span class="icon-table mr-3"></span>Correspondencia anual</a></li>
+              <br>
+              <li class="accordion">
+                  <a href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" class="collapsible">
+                    <span  class="icon-user-o mr-3"></span>Administración de areas
+                  </a>
+                  <div id="collapseTwo" class="collapse" aria-labelledby="headingOne">
+                    <div>
+                      <ul>
+                        <li><a href="{% url 'lista_area' %}">Mostrar areas</a></li>
+                        <li><a href="{% url 'crear_area' %}">Agregar area</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+                <br>
+                <li class="accordion">
+                  <a href="#" data-toggle="collapse" data-target="#collapseTree" aria-expanded="false" aria-controls="collapseTree" class="collapsible">
+                    <span  class="icon-users mr-3"></span>Administración de dependencias
+                  </a>
+                  <div id="collapseTree" class="collapse" aria-labelledby="headingOne">
+                    <div>
+                      <ul>
+                        <li><a href="{% url 'lista_dependencia' %}">Mostrar dependencias</a></li>
+                        <li><a href="{% url 'crear_dependencia' %}">Agregar dependencia</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+                <br>
+                <li><a href="{% url 'usuarios:lista' %}"><span class="icon-settings_applications mr-3"></span>Usuarios</a></li>
+                <br>
+
+                <li><a href="{% url 'usuarios:ajustes' 1 %}"><span class="icon-settings_applications mr-3"></span>Ajustes</a></li>
+              {% endif %}
+          </ul>
+        </div>
+        <footer>
+          <img src=" {% static 'images/LABSOL.png' %} "alt="Image" class="img-labsol">
+        </footer>  
+        
+      </div>
+      
+    </aside>
+    <!--**********************************
+            Header start
+        ***********************************-->
+        <div class="header">
+            <div class="header-content">
+                <nav class="navbar navbar-expand">
+                    <div class="collapse navbar-collapse justify-content-between">
+                        <div class="header-left"></div>
+
+                        <ul class="navbar-nav header-right">
+                            <li class="nav-item dropdown notification_dropdown">
+                                <a class="nav-link" href="#" role="button" data-toggle="dropdown">
+                                    <i class="mdi mdi-bell"></i>
+                                    <div class="pulse-css"></div>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <ul class="list-unstyled">
+                                        <li class="media dropdown-item">
+                                            <span class="success"><i class="ti-user"></i></span>
+                                            <div class="media-body">
+                                                <a href="#">
+                                                    <p><strong>Martin</strong> has added a <strong>customer</strong> Successfully
+                                                    </p>
+                                                </a>
+                                            </div>
+                                            <span class="notify-time">3:20 am</span>
+                                        </li>
+                                    </ul>
+                                    <a class="all-notification" href="#">See all notifications <i
+                                            class="ti-arrow-right"></i></a>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown header-profile">
+                              <a href="{% url 'logout' %}">
+                                Logout
+                                <a class="nav-link" href="{% url 'logout' %}" role="button" data-toggle="dropdown">
+                                    <i class="mdi mdi-account"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a href="#" class="dropdown-item">
+                                        <i class="icon-user"></i>
+                                        <span class="ml-2">Profile </span>
+                                    </a>
+                                    <a href="#" class="dropdown-item">
+                                        <i class="icon-envelope-open"></i>
+                                        <span class="ml-2">Inbox </span>
+                                    </a>
+                                    <a href="{% url 'logout' %}" class="dropdown-item">
+                                        <i class="icon-key"></i>
+                                        <span class="ml-2">Logout </span>
+                                    </a>
+                                </div>
+                              </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!--**********************************
+            Header end ti-comment-alt
+        ***********************************-->
+    
+    <main>
+      <div class="site-section">
+        <div class="container">
+          {% block contenido %}
+    
+          {% endblock contenido %}
+        </div>  
+      </div>  
+    </main>
+    
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/global.min.js' %}"></script>
+    <script src="{% static 'js/quixnav-init.js' %}"></script>
+    <script src="{% static 'js/custom.min.js' %}"></script>
+    {% block js %}
+      
+    {% endblock js %}
+  </body>
+</html>

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block titulo %}
+    Ajustes
+{% endblock titulo %}
+
+{% block contenido %}
+<center><h1>Ajustes</h1></center>
+    <form method="post" enctype="multipart/form-data" >
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit" class="btn btn-success">Guardar</button>
+    </form>
+{% endblock contenido %}

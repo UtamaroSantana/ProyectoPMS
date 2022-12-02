@@ -1,0 +1,153 @@
+/*!
+ * Bootstrap v4.3.1 (https://getbootstrap.com/)
+ * Copyright 2011-2019 The Bootstrap Authors
+ * Copyright 2011-2019 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
+:root {
+  --blue: #007bff;
+  --indigo: #6610f2;
+  --purple: #6f42c1;
+  --pink: #e83e8c;
+  --red: #dc3545;
+  --orange: #fd7e14;
+  --yellow: #ffc107;
+  --green: #28a745;
+  --teal: #20c997;
+  --cyan: #17a2b8;
+  --white: #fff;
+  --gray: #6c757d;
+  --gray-dark: #343a40;
+  --primary: #007bff;
+  --secondary: #6c757d;
+  --success: #28a745;
+  --info: #17a2b8;
+  --warning: #ffc107;
+  --danger: #dc3545;
+  --light: #f8f9fa;
+  --dark: #343a40;
+  --breakpoint-xs: 0;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+
+  th, td {
+    text-align: center;
+    vertical-align: top;
+    border-collapse: collapse;
+    width: 25%;
+ }
+
+tr.alert:hover {
+  color:#bb4423 !important;
+  cursor: pointer;
+}
+
+h1, h2, h3, h4, h5,
+.h1, .h2, .h3, .h4, .h5 {
+  line-height: 1.5;
+  font-weight: 400;
+  font-family: "Poppins", Arial, sans-serif;
+  color: #b43; }
+
+.table-wrap {
+  min-width: 1080px !important;
+  overflow-x: auto; } 
+
+.table {
+  min-width: 1000px !important;
+  width: 100%;
+  -webkit-box-shadow: 0px 5px 12px -12px rgba(0, 0, 0, 0.29);
+  -moz-box-shadow: 0px 5px 12px -12px rgba(0, 0, 0, 0.29);
+  box-shadow: 0px 5px 12px -12px rgba(0, 0, 0, 0.29); }
+  
+  .table thead th {
+    border: #000;
+    padding: 30px;
+    font-size: 13px;
+    font-weight: 500;
+    color: gray; }
+  .table thead tr {
+    background: #fff;
+    border-bottom: 4px solid #eceffa;
+    margin: 0 0 1em 0;
+    caption-side: top; }
+  .table tbody tr {
+    margin-bottom: 10px;
+    border-bottom: 4px solid #f8f9fd; }
+    .table tbody tr:last-child {
+      border-bottom: 0; }
+  .table tbody th, .table tbody td {
+    border: none;
+    padding: 30px;
+    font-size: 14px;
+    background: #fff;
+    vertical-align: middle; }
+  .table tbody td.status span {
+    position: relative;
+    border-radius: 30px;
+    padding: 4px 10px 4px 25px; }
+    .table tbody td.status span:after {
+      position: absolute;
+      top: 9px;
+      left: 10px;
+      width: 10px;
+      height: 10px;
+      content: '';
+      border-radius: 50%; }
+  .table tbody td.status .active {
+    background: #cff6dd;
+    color: #1fa750; }
+    .table tbody td.status .active:after {
+      background: #23bd5a; }
+  .table tbody td.status .waiting {
+    background: #fdf5dd;
+    color: #cfa00c; }
+    .table tbody td.status .waiting:after {
+      background: #f2be1d; }
+
+  .table tbody tr.alert:hover {
+    color:#bb4423  !important;
+    cursor: pointer;
+  }
+
+  .table tbody td.prioridad span {
+    position: relative;
+    border-radius: 30px;
+    padding: 4px 10px 4px 25px; }
+    .table tbody td.prioridad span:after {
+      position: absolute;
+      top: 9px;
+      left: 10px;
+      width: 10px;
+      height: 10px;
+      content: '';
+      border-radius: 50%; }
+  .table tbody td.prioridad .baja {
+    background: #cff6dd;
+    color: #1fa750; }
+    .table tbody td.prioridad .baja:after {
+      background: #23bd5a; }
+  .table tbody td.prioridad .media {
+    background: #fdf5dd;
+    color: #cfa00c; }
+    .table tbody td.prioridad .media:after {
+      background: #f2be1d; } 
+  .table tbody td.prioridad .alta {
+    background: #fddddd;
+    color: #f21d1d; }
+    .table tbody td.prioridad .alta:after {
+      background: #f21d1d; } 
+
+  .table tbody td .email span {
+    display: block; }
+    .table tbody td .email span:last-child {
+      font-size: 12px;
+      color: rgba(0, 0, 0, 0.3); }
+  .table tbody td .close span {
+    font-size: 12px;
+    color: #dc3545; }
+  
