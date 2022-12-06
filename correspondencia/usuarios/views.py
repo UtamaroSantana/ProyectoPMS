@@ -40,6 +40,7 @@ class UsuarioCrear(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
     form_class = UsuarioForm
     template_name = 'usuarios/crear_usuarios.html'
     success_url = reverse_lazy('usuarios:lista')
+    
 
     def form_valid(self, form):
         user = form.save(commit=False)

@@ -7,7 +7,7 @@ from selenium.webdriver.common.keys import Keys
 
 @given(u'que ingreso al sistema en el dominio "{url}"')
 def step_impl(context, url):
-    context.driver = webdriver.Firefox()
+    context.driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
     context.driver.get(url)
 
 @given(u'escribo mi usuario "{usuario}" y contraseña "{contra}"')

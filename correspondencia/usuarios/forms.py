@@ -8,10 +8,10 @@ class UsuarioForm(forms.ModelForm):
     class Meta:
         model = Usuario
 
-        area = forms.ModelMultipleChoiceField(queryset=Area.objects.all(), required=True, widget=forms.CheckboxSelectMultiple)
+        area = forms.ModelMultipleChoiceField(queryset=Area.objects.all(), required=False, widget=forms.CheckboxSelectMultiple)
 
         fields = ('first_name','last_name','username','email','password','area','puesto')
-
+        
         widgets = {
             'first_name': forms.TextInput(attrs={'class':'form-control', 'placeholder':'Nombre'}),
             'last_name': forms.TextInput(attrs={'class':'form-control', 'placeholder':'Apellido'}),
@@ -21,6 +21,7 @@ class UsuarioForm(forms.ModelForm):
             'area' : forms.Select(attrs={'class':'form-control', 'placeholder':'Area a la que pertenece el usuario'}),
             'puesto' : forms.TextInput(attrs={'class':'form-control', 'placeholder':'Puesto del usuario'})
         }
+        
 
     def save(self, commit=True):
         user = super(UsuarioForm, self).save(commit=False)
@@ -28,6 +29,7 @@ class UsuarioForm(forms.ModelForm):
         if commit:
             user.save()
         return user
+
 
 class AjustesForm(forms.ModelForm):
     class Meta:
