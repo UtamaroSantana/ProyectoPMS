@@ -1,7 +1,7 @@
-Característica: Agregar una area
-    Como usuario del sistema
-    Quiero entrar al sistema para realizar mis actividaes en areas
-    Para tener control de las áreas que hay.
+ Característica: Agregar una area
+     Como usuario del sistema
+     Quiero entrar al sistema para realizar mis actividaes en areas
+   Para tener control de las áreas que hay.
 
     Escenario: Agregar datos correctos
     Dado que ingreso al sistema en el dominio "http://localhost:8000/"

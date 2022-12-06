@@ -14,6 +14,7 @@ class TestModels(TestCase):
             siglas = 'Cta'
         )
         self.area.save()
+<<<<<<< HEAD
         
         self.ajuste = Ajustes(
             titulo = 'Prueba titulo',
@@ -61,6 +62,9 @@ class TestModels(TestCase):
         )
         with self.assertRaises(ValidationError):
             ajuste1.full_clean()
+=======
+
+>>>>>>> dc3e884189f000893ad19044488c2c51da46ebd9
             
             
           

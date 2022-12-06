@@ -16,6 +16,10 @@ class TestViewsUsuario(TestCase):
              is_superuser=True,
              is_active=True
         )
+<<<<<<< HEAD
+=======
+        #self.usuario.user_permissions.add(Permission.objects.get(codename=''))
+>>>>>>> dc3e884189f000893ad19044488c2c51da46ebd9
         self.usuario.set_password('admin')
         self.usuario.save()
         self.client.login(username='admin', password='admin')
@@ -28,6 +32,12 @@ class TestViewsUsuario(TestCase):
         
         self.area.save()
         
+<<<<<<< HEAD
+=======
+        
+       
+        #fields = ('first_name','last_name','username','email','password','area','puesto')
+>>>>>>> dc3e884189f000893ad19044488c2c51da46ebd9
 
         self.datos = {
             'first_name' : 'Luis',
@@ -37,13 +47,23 @@ class TestViewsUsuario(TestCase):
             'password' : '12345678',
             'area' : self.area,
             'puesto' : 'apuesto'
+<<<<<<< HEAD
         }
         
     
+=======
+            #'is_superuser' : True
+        }
+        
+    
+        
+    
+>>>>>>> dc3e884189f000893ad19044488c2c51da46ebd9
     def test_crear_usuario_response(self):
         response = self.client.get('/usuarios/crear/')
         self.assertEqual(response.status_code, 200)
         
+<<<<<<< HEAD
    
     
         
@@ -114,6 +134,20 @@ class TestViewsUsuario(TestCase):
         
         
    
+=======
+    def test_template_usuarios_correcto(self):
+        response = self.client.get('/usuarios/')
+        self.assertTemplateUsed(response, 'usuarios/lista_usuarios.html')
+        
+            
+    def test_usuarios_response(self):
+        response = self.client.get('/usuarios/')
+        self.assertEqual(response.status_code, 200)
+        
+    def test_template_crear_usuario_correcto(self):
+        response = self.client.get('/usuarios/crear/')
+        self.assertTemplateUsed(response, 'usuarios/crear_usuarios.html')
+>>>>>>> dc3e884189f000893ad19044488c2c51da46ebd9
         
     def test_agregar_usuario_valido(self):
         area1 = Area(

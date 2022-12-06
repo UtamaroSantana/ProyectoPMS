@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from django.db import models
 from ficha.models import Area
-
+from .validators import valor_minimo_titulo, solo_Alphabeto, valor_minimo_subtitulo
 
 class Usuario(User):
     foto = models.ImageField("Foto de perfil", blank=True, null=True)
@@ -17,8 +17,8 @@ class Usuario(User):
         return self.last_name + ' ' + self.first_name
 
 class Ajustes(models.Model):
-    titulo = models.CharField(max_length=100, verbose_name="Título", default="Sistema de Control y Seguimiento de Correspondencias")
-    subtitulo = models.CharField(max_length=100, verbose_name="Subtitulo", default="LABSOL")
+    titulo = models.CharField(max_length=100, validators=[valor_minimo_titulo], verbose_name="Título", default="Sistema de Control y Seguimiento de Correspondencias")
+    subtitulo = models.CharField(max_length=100, validators=[valor_minimo_subtitulo,solo_Alphabeto], verbose_name="Subtitulo", default="LABSOL")
     logo = models.ImageField("Logo de institución",upload_to="logo/", blank=True, null=True)
 
     def subtitulo_to_str(self):
