@@ -7,7 +7,9 @@ class Usuario(User):
     foto = models.ImageField("Foto de perfil", blank=True, null=True)
     area = models.ForeignKey(Area, on_delete=models.CASCADE, verbose_name="Area")
     puesto = models.CharField(max_length=100, verbose_name="Puesto")
+    User.first_name = models.CharField(max_length=150, verbose_name="Nombre", blank=True, null=False)
 
+    
     def email_to_str(self):
         return self.email
 

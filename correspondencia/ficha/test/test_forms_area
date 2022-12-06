@@ -1,0 +1,48 @@
+from django.test import TestCase
+from ficha.forms import AreaForm
+
+
+class TestFormArea(TestCase):
+     
+    def setUp(self):
+        self.area = {
+            'nombre':'Administración',
+            'siglas':'adm'
+        }
+    
+    
+    def test_area_nombre_con_espacios(self):
+        self.area['nombre'] = 'Area de mantenimineto'
+        form = AreaForm(self.area)
+        self.assertTrue(form.is_valid())
+          
+    def test_area_form(self):
+        form = AreaForm(self.area)
+        self.assertTrue(form.is_valid())
+    
+    def test_area_nombre_vacio(self):
+        self.area['nombre'] = ''
+        form = AreaForm(self.area)
+        self.assertFalse(form.is_valid())
+    
+    def test_area_siglas_vacio(self):
+        self.area['siglas'] = ''
+        form = AreaForm(self.area)
+        self.assertFalse(form.is_valid())
+        
+    def test_area_siglas_maximo_caracteres(self):
+        self.area['siglas'] = 'aaaaa'*10
+        form = AreaForm(self.area)
+        self.assertFalse(form.is_valid())
+        
+        
+    def test_area_nombre_maximo_caracteres(self):
+        self.area['nombre'] = 'aaaaa'*100
+        form = AreaForm(self.area)
+        self.assertFalse(form.is_valid())
+    
+
+    
+        
+    
+    
