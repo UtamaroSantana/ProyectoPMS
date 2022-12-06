@@ -1,0 +1,50 @@
+from django.test import TestCase
+from django.core.exceptions import ValidationError
+from ficha.models import Area
+from ficha.validador_area import *
+
+class TestModels(TestCase):
+    def setUp(self):
+        self.area = Area(
+            nombre = 'Contaduria',
+            siglas = 'Cta'
+        )
+    
+    def test_nombre_es_requerido(self):
+        area = Area(
+            siglas = 'Cta'
+        )
+        with self.assertRaises(ValidationError):
+            area.full_clean()
+        
+    def test_sigalas_es_requerido(self):
+        area = Area(
+            nombre = 'Area administrativa',
+            siglas = ''
+        )
+        with self.assertRaises(ValidationError):
+            area.full_clean()
+                
+    
+    def test_siglas_y_nombre_es_requerido(self):
+        area = Area(
+            nombre = '',
+            siglas = ''
+        )
+        with self.assertRaises(ValidationError):
+            area.full_clean()
+            
+    def test_areas_tostring(self):
+        self.assertEquals(self.area.to_string(),'Contaduria (Cta)')
+        
+    def test_verifica_longitud_nombre(self):
+        self.area.nombre = 'hola'*110
+        
+        with self.assertRaises(ValidationError):
+            self.area.full_clean()
+            
+    def test_verifica_longitud_siglas(self):
+        self.area.siglas = 'k'*110
+        
+        with self.assertRaises(ValidationError):
+            self.area.full_clean()
