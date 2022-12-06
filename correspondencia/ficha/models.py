@@ -2,6 +2,7 @@ from email.policy import default
 from enum import unique
 from django.db import models
 from datetime import datetime
+from .validators import valor_minimo_siglas, solo_Alphabeto, valor_minimo_nombre
 
 class Ficha(models.Model):
 
@@ -27,15 +28,15 @@ class Ficha(models.Model):
         return self.num_documento
 
 class Dependencia(models.Model):
-    nombre = models.CharField(max_length=200, verbose_name="Nombre", unique=True)
-    siglas = models.CharField(max_length=20, verbose_name="Siglas", unique=True)
+    nombre = models.CharField(max_length=200, validators=[valor_minimo_nombre,solo_Alphabeto], verbose_name="Nombre", unique=True)
+    siglas = models.CharField(max_length=20, validators=[valor_minimo_siglas,solo_Alphabeto], verbose_name="Siglas", unique=True)
 
     def __str__(self):
         return self.nombre + ' (' + self.siglas +')'
 
 class Area(models.Model):
-    nombre = models.CharField(max_length=200, verbose_name="Nombre", unique=True)
-    siglas = models.CharField(max_length=20, verbose_name="Siglas", unique=True)
+    nombre = models.CharField(max_length=200, validators=[valor_minimo_nombre,solo_Alphabeto], verbose_name="Nombre", unique=True)
+    siglas = models.CharField(max_length=20, validators=[valor_minimo_siglas,solo_Alphabeto], verbose_name="Siglas", unique=True)
 
     def to_string(self):
         return self.nombre + ' (' + self.siglas +')'
